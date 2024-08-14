@@ -37,7 +37,7 @@ public class UserController {
     @PostMapping("/add")
     public String addUser(@ModelAttribute User user) {
         userService.save(user);
-        return "redirect:/users";
+        return "redirect:/users/";
     }
 
     @GetMapping("/edit/{id}")
@@ -50,12 +50,12 @@ public class UserController {
     @PostMapping("/edit")
     public String editUser(@ModelAttribute User user) {
         userService.save(user);
-        return "redirect:/users";
+        return "redirect:/users/";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable Long id) {
         userService.delete(id);
-        return "redirect:/users";
+        return "redirect:/users/";
     }
 }
