@@ -21,17 +21,17 @@ public class UserController {
         return "simple";  // Убедитесь, что возвращаете корректное имя шаблона
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String listUsers(Model model) {
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
-        return "user/list";
+        return "list";
     }
 
     @GetMapping("/add")
     public String addUserForm(Model model) {
         model.addAttribute("user", new User());
-        return "user/add";
+        return "add";
     }
 
     @PostMapping("/add")
@@ -44,7 +44,7 @@ public class UserController {
     public String editUserForm(@PathVariable Long id, Model model) {
         User user = userService.findById(id);
         model.addAttribute("user", user);
-        return "user/edit";
+        return "edit";
     }
 
     @PostMapping("/edit")
