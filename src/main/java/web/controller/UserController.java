@@ -16,6 +16,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/test")
+    public String testPage() {
+        return "simple";  // Убедитесь, что возвращаете корректное имя шаблона
+    }
+
     @GetMapping
     public String listUsers(Model model) {
         List<User> users = userService.findAll();
